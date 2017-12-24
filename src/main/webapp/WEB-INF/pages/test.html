@@ -53,78 +53,41 @@
     <div class="row content">
         <div class="col-sm-2 sidenav"></div>
         <div class="col-sm-8 text-left" style="padding-top: 5%">
-            <form action="Calculate" method="POST">
-                <table>
+            <table class="table-bordered" width="90%">
+                    <th>
+                    	<td title="Период, за который производится расчет"><p>1</p></td>
+                    	<td title="Сумма выручки от реализации товаров (работ, услуг), имущественных прав за выбранный период (без налога на добавленную стоимость), руб."><p>2</p></td>
+                    	<td title="Сумма внереализационных доходов за выбранный период (без налога на добавленную стоимость), руб."><p>3</p></td>
+                    	<td title="Наличие места основной работы"><p>4</p></td>
+                    	<td title="Наличие права на льготы (инвалид I или II группы, инвалид с детства, участник боевых действий на территории других государств и др.)"><p>5</p></td>
+                    	<td title="Являетесь ли Вы вдовой (вдовцом), одиноким родителем, приемным родителем, опекуном или попечителем"><p>6</p></td>
+                    	<td title="Количество детей до 18 лет"><p>7</p></td>
+                    	<td title="Количество детей-инвалидов"><p>8</p></td>
+                    	<td title="Количество иждивенцев"><p>9</p></td>
+                    	<td title="Сумма расходов за выбранный период по страховым взносам по договорам добровольного страхования жизни и дополнительной пенсии, заключенным на срок не менее трех лет, а также по договорам добровольного страхования медицинских расходов, руб"><p>10</p></td>
+                    	<td title="Сумма расходов за выбранный период на получение первого платного образования своего либо близких родственников, руб.:"><p>11</p></td>
+                    	<td title="Сумма расходов за выбранный период на строительство либо приобретение жилья для нуждающихся в улучшении жилищных условий, руб."><p>12</p></td>
+                    	<td title="Сумма расходов за выбранный период, связанных с осуществлением предпринимательской деятельности, руб.:"><p>13</p></td>
+						<td><p>Итог</p></td>
+                    </th>
                     <tr>
-                        <td><p>Период, за который производится расчет:</p></td>
-                        <td><select class="form-control" name="period">
-                            <option value="3">Квартал</option>
-                            <option value="6">Полугодие</option>
-                            <option value="9">Девять месяцев</option>
-                            <option value="12">Год</option>
-                        </select>
-                        </td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+						<td></td>
+						<td></td>
                     </tr>
-                    <tr>
-                        <td><p>Сумма выручки от реализации товаров (работ, услуг), имущественных прав за выбранный период (без налога на добавленную стоимость), руб.</p></td>
-                        <td><input type="text" class="form-control" name="proceeds"></td>
-                    </tr>
-                    <tr>
-                        <td><p>Сумма внереализационных доходов за выбранный период (без налога на добавленную стоимость), руб.</p></td>
-                        <td><input type="text" class="form-control" name="nonOperatingIncome"></td>
-                    </tr>
-                    <tr>
-                        <td><p>Наличие места основной работы:</p></td>
-                        <td>
-                            <input type="radio" name="hasMainJob" value="true">Да <input type="radio" name="hasMainJob" value="false">Нет
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>Наличие права на льготы (инвалид I или II группы, инвалид с детства, участник боевых действий на территории других государств и др.):</p></td>
-                        <td>
-                            <input type="radio" name="hasBenefits" value="true">Да <input type="radio" name="hasBenefits" value="false">Нет
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>Являетесь ли Вы вдовой (вдовцом), одиноким родителем, приемным родителем, опекуном или попечителем:</p></td>
-                        <td>
-                            <input type="radio" name="specialStatus" value="true">Да <input type="radio" name="specialStatus" value="false">Нет
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>Количество детей до 18 лет:</p></td>
-                        <td><input type="text" class="form-control"  name="numOfChildren"></td>
-                    </tr>
-                    <tr>
-                        <td><p>Количество детей-инвалидов:</p></td>
-                        <td><input type="text"  class="form-control" name="numOfDisabledChildren"></td>
-                    </tr>
-                    <tr>
-                        <td><p>Количество иждивенцев:</p></td>
-                        <td><input type="text" class="form-control" name="numOfDependents"></td>
-                    </tr>
-                    <tr>
-                        <td><p>Сумма расходов за выбранный период по страховым взносам по договорам добровольного страхования жизни и дополнительной пенсии, заключенным на срок не менее трех лет, а также по договорам добровольного страхования медицинских расходов, руб.:</p></td>
-                        <td><input type="text" class="form-control" name="insuranceContributions"></td>
-                    </tr>
-                    <tr>
-                        <td><p>Сумма расходов за выбранный период на получение первого платного образования своего либо близких родственников, руб.:</p></td>
-                        <td><input type="text" class="form-control" name="educationExpenses"></td>
-                    </tr>
-                    <tr>
-                        <td><p>Сумма расходов за выбранный период на строительство либо приобретение жилья для нуждающихся в улучшении жилищных условий, руб.:</p></td>
-                        <td><input type="text" class="form-control" name="expensesForBuilding"></td>
-                    </tr>
-                    <tr>
-                        <td><p>Сумма расходов за выбранный период, связанных с осуществлением предпринимательской деятельности, руб.:</p></td>
-                        <td><input type="text" class="form-control" name="expensesForBusiness"></td>
-                    </tr>
-                    <tr>
-                        <td align="center" colspan="2"><input type="submit" class="btn btn-lg btn-block" value="Рассчитать"></td>
-                    </tr>
-                </table>
-                
-            </form>
+            </table>
         </div>
         <div class="col-sm-2 sidenav"></div>
     </div>

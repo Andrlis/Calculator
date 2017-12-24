@@ -24,16 +24,20 @@ public class Calculate extends HttpServlet {
         calculationResult.setParameters(parameters);
 
         try {
-            calculationResult .setResult(Calculator.calculateTax(parameters));
-        }catch (CalculationException ex){
-            throw new ServletException(ex);
-        }
+            calculationResult.setResult(Calculator.calculateTax(parameters));
+            //DaoFactory.getCalculationResult().saveResult(calculationResult);
 
-        try {
-            DaoFactory.getCalculationResult().saveResult(calculationResult);
-        }catch (DaoException ex){
+            request.setAttribute("calculationResult", calculationResult);
+            request
+                    .getRequestDispatcher("WEB-INF/pages/result.jsp")
+                    .forward(request, response);
+        }
+        catch (CalculationException ex){
             throw new ServletException(ex);
         }
+//        catch (DaoException ex){
+//            throw new ServletException(ex);
+//        }
 
     }
 
@@ -45,18 +49,18 @@ public class Calculate extends HttpServlet {
         CalculationParameters parameters = new CalculationParameters();
 
         int period = Integer.parseInt(request.getParameter("period"));
-        double proceeds = Double.parseDouble(request.getParameter("proceeds"));
-        double nonOperatingIncome = Double.parseDouble(request.getParameter("nonOperatingIncome"));
+        int proceeds = Integer.parseInt(request.getParameter("proceeds"));
+        int nonOperatingIncome = Integer.parseInt(request.getParameter("nonOperatingIncome"));
         boolean hasMainJob = Boolean.parseBoolean(request.getParameter("hasMainJob"));
         boolean hasBenefits = Boolean.parseBoolean(request.getParameter("hasBenefits"));
         boolean specialStatus = Boolean.parseBoolean(request.getParameter("specialStatus"));
         int numOfChildren = Integer.parseInt(request.getParameter("numOfChildren"));
         int numOfDisabledChildren = Integer.parseInt(request.getParameter("numOfDisabledChildren"));
         int numOfDependents = Integer.parseInt(request.getParameter("numOfDependents"));
-        double insuranceContributions = Double.parseDouble(request.getParameter("insuranceContributions"));
-        double educationExpenses = Double.parseDouble(request.getParameter("educationExpenses"));
-        double expensesForBuilding = Double.parseDouble(request.getParameter("expensesForBuilding"));
-        double expensesForBusiness = Double.parseDouble(request.getParameter("expensesForBusiness"));
+        int insuranceContributions = Integer.parseInt(request.getParameter("insuranceContributions"));
+        int educationExpenses = Integer.parseInt(request.getParameter("educationExpenses"));
+        int expensesForBuilding = Integer.parseInt(request.getParameter("expensesForBuilding"));
+        int expensesForBusiness = Integer.parseInt(request.getParameter("expensesForBusiness"));
 
         parameters.setPeriod(period);
         parameters.setProceeds(proceeds);
