@@ -47,18 +47,18 @@ public class MySqlCalculationResultDAO extends AbstractSqlDAO implements Calcula
 
                 result.setId(resultSet.getInt("id_result"));
                 result.getParameters().setPeriod(resultSet.getInt("period"));
-                result.getParameters().setProceeds(resultSet.getDouble("proceeds"));
-                result.getParameters().setNonOperatingIncome(resultSet.getDouble("nonOperatingIncome"));
+                result.getParameters().setProceeds(resultSet.getInt("proceeds"));
+                result.getParameters().setNonOperatingIncome(resultSet.getInt("nonOperatingIncome"));
                 result.getParameters().setHasMainJob(resultSet.getBoolean("hasMainJob"));
                 result.getParameters().setHasBenefits(resultSet.getBoolean("hasBenefits"));
                 result.getParameters().setSpecialStatus(resultSet.getBoolean("specialStatus"));
                 result.getParameters().setNumOfChildren(resultSet.getInt("numOfChildren"));
                 result.getParameters().setNumOfDisabledChildren(resultSet.getInt("numOfDisabledChildren"));
                 result.getParameters().setNumOfDependents(resultSet.getInt("numOfDependents"));
-                result.getParameters().setInsuranceContributions(resultSet.getDouble("insuranceContributions"));
-                result.getParameters().setEducationExpenses(resultSet.getDouble("educationExpenses"));
-                result.getParameters().setExpensesForBuilding(resultSet.getDouble("expensesForBuilding"));
-                result.getParameters().setExpensesForBusiness(resultSet.getDouble("expensesForBusiness"));
+                result.getParameters().setInsuranceContributions(resultSet.getInt("insuranceContributions"));
+                result.getParameters().setEducationExpenses(resultSet.getInt("educationExpenses"));
+                result.getParameters().setExpensesForBuilding(resultSet.getInt("expensesForBuilding"));
+                result.getParameters().setExpensesForBusiness(resultSet.getInt("expensesForBusiness"));
                 result.setResult(resultSet.getDouble("calculationResult"));
             }
         } catch (SQLException e) {
@@ -86,18 +86,18 @@ public class MySqlCalculationResultDAO extends AbstractSqlDAO implements Calcula
 
                 result.setId(resultSet.getInt("id_result"));
                 result.getParameters().setPeriod(resultSet.getInt("period"));
-                result.getParameters().setProceeds(resultSet.getDouble("proceeds"));
-                result.getParameters().setNonOperatingIncome(resultSet.getDouble("nonOperatingIncome"));
+                result.getParameters().setProceeds(resultSet.getInt("proceeds"));
+                result.getParameters().setNonOperatingIncome(resultSet.getInt("nonOperatingIncome"));
                 result.getParameters().setHasMainJob(resultSet.getBoolean("hasMainJob"));
                 result.getParameters().setHasBenefits(resultSet.getBoolean("hasBenefits"));
                 result.getParameters().setSpecialStatus(resultSet.getBoolean("specialStatus"));
                 result.getParameters().setNumOfChildren(resultSet.getInt("numOfChildren"));
                 result.getParameters().setNumOfDisabledChildren(resultSet.getInt("numOfDisabledChildren"));
                 result.getParameters().setNumOfDependents(resultSet.getInt("numOfDependents"));
-                result.getParameters().setInsuranceContributions(resultSet.getDouble("insuranceContributions"));
-                result.getParameters().setEducationExpenses(resultSet.getDouble("educationExpenses"));
-                result.getParameters().setExpensesForBuilding(resultSet.getDouble("expensesForBuilding"));
-                result.getParameters().setExpensesForBusiness(resultSet.getDouble("expensesForBusiness"));
+                result.getParameters().setInsuranceContributions(resultSet.getInt("insuranceContributions"));
+                result.getParameters().setEducationExpenses(resultSet.getInt("educationExpenses"));
+                result.getParameters().setExpensesForBuilding(resultSet.getInt("expensesForBuilding"));
+                result.getParameters().setExpensesForBusiness(resultSet.getInt("expensesForBusiness"));
                 result.setResult(resultSet.getDouble("calculationResult"));
 
                 results.add(result);
@@ -122,18 +122,18 @@ public class MySqlCalculationResultDAO extends AbstractSqlDAO implements Calcula
             statement = connection.prepareStatement(SAVE_QUERY);
 
             statement.setInt(1, result.getParameters().getPeriod());
-            statement.setDouble(2, result.getParameters().getProceeds());
-            statement.setDouble(3, result.getParameters().getNonOperatingIncome());
+            statement.setInt(2, result.getParameters().getProceeds());
+            statement.setInt(3, result.getParameters().getNonOperatingIncome());
             statement.setBoolean(4, result.getParameters().isHasMainJob());
             statement.setBoolean(5, result.getParameters().isHasBenefits());
             statement.setBoolean(6, result.getParameters().isSpecialStatus());
             statement.setInt(7, result.getParameters().getNumOfChildren());
             statement.setInt(8, result.getParameters().getNumOfDisabledChildren());
             statement.setInt(9, result.getParameters().getNumOfDependents());
-            statement.setDouble(10, result.getParameters().getInsuranceContributions());
-            statement.setDouble(11, result.getParameters().getEducationExpenses());
-            statement.setDouble(12, result.getParameters().getExpensesForBuilding());
-            statement.setDouble(13, result.getParameters().getExpensesForBusiness());
+            statement.setInt(10, result.getParameters().getInsuranceContributions());
+            statement.setInt(11, result.getParameters().getEducationExpenses());
+            statement.setInt(12, result.getParameters().getExpensesForBuilding());
+            statement.setInt(13, result.getParameters().getExpensesForBusiness());
             statement.setDouble(14, result.getResult());
 
             statement.executeUpdate();
@@ -155,18 +155,18 @@ public class MySqlCalculationResultDAO extends AbstractSqlDAO implements Calcula
             statement = connection.prepareStatement("UPDATE_QUERY");
 
             statement.setInt(1, result.getParameters().getPeriod());
-            statement.setDouble(2, result.getParameters().getProceeds());
-            statement.setDouble(3, result.getParameters().getNonOperatingIncome());
+            statement.setInt(2, result.getParameters().getProceeds());
+            statement.setInt(3, result.getParameters().getNonOperatingIncome());
             statement.setBoolean(4, result.getParameters().isHasMainJob());
             statement.setBoolean(5, result.getParameters().isHasBenefits());
             statement.setBoolean(6, result.getParameters().isSpecialStatus());
             statement.setInt(7, result.getParameters().getNumOfChildren());
             statement.setInt(8, result.getParameters().getNumOfDisabledChildren());
             statement.setInt(9, result.getParameters().getNumOfDependents());
-            statement.setDouble(10, result.getParameters().getInsuranceContributions());
-            statement.setDouble(11, result.getParameters().getEducationExpenses());
-            statement.setDouble(12, result.getParameters().getExpensesForBuilding());
-            statement.setDouble(13, result.getParameters().getExpensesForBusiness());
+            statement.setInt(10, result.getParameters().getInsuranceContributions());
+            statement.setInt(11, result.getParameters().getEducationExpenses());
+            statement.setInt(12, result.getParameters().getExpensesForBuilding());
+            statement.setInt(13, result.getParameters().getExpensesForBusiness());
             statement.setDouble(14, result.getResult());
 
             statement.executeUpdate();

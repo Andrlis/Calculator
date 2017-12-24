@@ -3,18 +3,18 @@ package bean;
 public class CalculationParameters {
 
     private int period;
-    private double proceeds;
-    private double nonOperatingIncome;
+    private int proceeds;
+    private int nonOperatingIncome;
     private boolean hasMainJob;
     private boolean hasBenefits;
     private boolean specialStatus;
     private int numOfChildren;
     private int numOfDisabledChildren;
     private int numOfDependents;
-    private double insuranceContributions;
-    private double educationExpenses;
-    private double expensesForBuilding;
-    private double expensesForBusiness;
+    private int insuranceContributions;
+    private int educationExpenses;
+    private int expensesForBuilding;
+    private int expensesForBusiness;
 
 
     public int getPeriod() {
@@ -25,19 +25,19 @@ public class CalculationParameters {
         this.period = period;
     }
 
-    public double getProceeds() {
+    public int getProceeds() {
         return proceeds;
     }
 
-    public void setProceeds(double proceeds) {
+    public void setProceeds(int proceeds) {
         this.proceeds = proceeds;
     }
 
-    public double getNonOperatingIncome() {
+    public int getNonOperatingIncome() {
         return nonOperatingIncome;
     }
 
-    public void setNonOperatingIncome(double nonOperatingIncome) {
+    public void setNonOperatingIncome(int nonOperatingIncome) {
         this.nonOperatingIncome = nonOperatingIncome;
     }
 
@@ -89,35 +89,35 @@ public class CalculationParameters {
         this.numOfDependents = numOfDependents;
     }
 
-    public double getInsuranceContributions() {
+    public int getInsuranceContributions() {
         return insuranceContributions;
     }
 
-    public void setInsuranceContributions(double insuranceContributions) {
+    public void setInsuranceContributions(int insuranceContributions) {
         this.insuranceContributions = insuranceContributions;
     }
 
-    public double getEducationExpenses() {
+    public int getEducationExpenses() {
         return educationExpenses;
     }
 
-    public void setEducationExpenses(double educationExpenses) {
+    public void setEducationExpenses(int educationExpenses) {
         this.educationExpenses = educationExpenses;
     }
 
-    public double getExpensesForBuilding() {
+    public int getExpensesForBuilding() {
         return expensesForBuilding;
     }
 
-    public void setExpensesForBuilding(double expensesForBuilding) {
+    public void setExpensesForBuilding(int expensesForBuilding) {
         this.expensesForBuilding = expensesForBuilding;
     }
 
-    public double getExpensesForBusiness() {
+    public int getExpensesForBusiness() {
         return expensesForBusiness;
     }
 
-    public void setExpensesForBusiness(double expensesForBusiness) {
+    public void setExpensesForBusiness(int expensesForBusiness) {
         this.expensesForBusiness = expensesForBusiness;
     }
 }

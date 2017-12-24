@@ -25,6 +25,11 @@
             border-radius: 0;
         }
 
+        td, th {
+			padding: 0;
+			padding-bottom: 2%;
+		}
+
         .row.content {height: 100%}
 
         .sidenav {
@@ -47,12 +52,12 @@
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-2 sidenav"></div>
-        <div class="col-sm-8 text-left">
+        <div class="col-sm-8 text-left" style="padding-top: 5%">
             <form action="Calculate" method="POST">
-                <table style="padding-top: 5%">
+                <table>
                     <tr>
                         <td><p>Период, за который производится расчет:</p></td>
-                        <td><select name="period">
+                        <td><select class="form-control" name="period">
                             <option value="3">Квартал</option>
                             <option value="6">Полугодие</option>
                             <option value="9">Девять месяцев</option>
@@ -62,11 +67,11 @@
                     </tr>
                     <tr>
                         <td><p>Сумма выручки от реализации товаров (работ, услуг), имущественных прав за выбранный период (без налога на добавленную стоимость), руб.</p></td>
-                        <td><input type="text" name="proceeds"></td>
+                        <td><input type="text" class="form-control" name="proceeds"></td>
                     </tr>
                     <tr>
                         <td><p>Сумма внереализационных доходов за выбранный период (без налога на добавленную стоимость), руб.</p></td>
-                        <td><input type="text" name="nonOperatingIncome"></td>
+                        <td><input type="text" class="form-control" name="nonOperatingIncome"></td>
                     </tr>
                     <tr>
                         <td><p>Наличие места основной работы:</p></td>
@@ -88,34 +93,37 @@
                     </tr>
                     <tr>
                         <td><p>Количество детей до 18 лет:</p></td>
-                        <td><input type="text" name="numOfChildren"></td>
+                        <td><input type="text" class="form-control"  name="numOfChildren"></td>
                     </tr>
                     <tr>
                         <td><p>Количество детей-инвалидов:</p></td>
-                        <td><input type="text" name="numOfDisabledChildren"></td>
+                        <td><input type="text"  class="form-control" name="numOfDisabledChildren"></td>
                     </tr>
                     <tr>
                         <td><p>Количество иждивенцев:</p></td>
-                        <td><input type="text" name="numOfDependents"></td>
+                        <td><input type="text" class="form-control" name="numOfDependents"></td>
                     </tr>
                     <tr>
                         <td><p>Сумма расходов за выбранный период по страховым взносам по договорам добровольного страхования жизни и дополнительной пенсии, заключенным на срок не менее трех лет, а также по договорам добровольного страхования медицинских расходов, руб.:</p></td>
-                        <td><input type="text" name="insuranceContributions"></td>
+                        <td><input type="text" class="form-control" name="insuranceContributions"></td>
                     </tr>
                     <tr>
                         <td><p>Сумма расходов за выбранный период на получение первого платного образования своего либо близких родственников, руб.:</p></td>
-                        <td><input type="text" name="educationExpenses"></td>
+                        <td><input type="text" class="form-control" name="educationExpenses"></td>
                     </tr>
                     <tr>
                         <td><p>Сумма расходов за выбранный период на строительство либо приобретение жилья для нуждающихся в улучшении жилищных условий, руб.:</p></td>
-                        <td><input type="text" name="expensesForBuilding"></td>
+                        <td><input type="text" class="form-control" name="expensesForBuilding"></td>
                     </tr>
                     <tr>
                         <td><p>Сумма расходов за выбранный период, связанных с осуществлением предпринимательской деятельности, руб.:</p></td>
-                        <td><input type="text" name="expensesForBusiness"></td>
+                        <td><input type="text" class="form-control" name="expensesForBusiness"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2"><input type="submit" class="btn btn-lg btn-block" value="Рассчитать"></td>
                     </tr>
                 </table>
-                <input type="submit" value="Рассчитать">
+                
             </form>
         </div>
         <div class="col-sm-2 sidenav"></div>
