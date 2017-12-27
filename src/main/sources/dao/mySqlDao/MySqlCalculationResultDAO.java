@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MySqlCalculationResultDAO extends AbstractSqlDAO implements CalculationResultDAO {
@@ -74,7 +75,7 @@ public class MySqlCalculationResultDAO extends AbstractSqlDAO implements Calcula
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
-        List<CalculationResult> results = null;
+        List<CalculationResult> results = new ArrayList<CalculationResult>();
 
         try {
             connection = getConnection();
@@ -83,7 +84,6 @@ public class MySqlCalculationResultDAO extends AbstractSqlDAO implements Calcula
 
             while(resultSet.next()) {
                 CalculationResult result = new CalculationResult();
-
                 result.setId(resultSet.getInt("id_result"));
                 result.getParameters().setPeriod(resultSet.getInt("period"));
                 result.getParameters().setProceeds(resultSet.getInt("proceeds"));

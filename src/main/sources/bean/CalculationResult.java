@@ -6,6 +6,10 @@ public class CalculationResult {
     private CalculationParameters parameters;
     private double result;
 
+    public CalculationResult(){
+       parameters = new CalculationParameters();
+    }
+
     public int getId() {
         return id;
     }

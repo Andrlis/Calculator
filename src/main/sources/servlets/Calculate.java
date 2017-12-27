@@ -25,7 +25,7 @@ public class Calculate extends HttpServlet {
 
         try {
             calculationResult.setResult(Calculator.calculateTax(parameters));
-            //DaoFactory.getCalculationResult().saveResult(calculationResult);
+            DaoFactory.getCalculationResult().saveResult(calculationResult);
 
             request.setAttribute("calculationResult", calculationResult);
             request
@@ -35,10 +35,9 @@ public class Calculate extends HttpServlet {
         catch (CalculationException ex){
             throw new ServletException(ex);
         }
-//        catch (DaoException ex){
-//            throw new ServletException(ex);
-//        }
-
+        catch (DaoException ex){
+            throw new ServletException(ex);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

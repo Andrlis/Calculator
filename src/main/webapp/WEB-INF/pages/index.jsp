@@ -25,7 +25,6 @@
         }
 
         td {
-            padding: 0;
             padding-bottom: 2%;
         }
 
@@ -43,15 +42,15 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li class="active"><a href="/StartServlet">Калькулятор</a></li>
-            <li><a href="#">Результаты</a></li>
+            <li><a href="/GetResultsServlet">Результаты</a></li>
         </ul>
     </div>
 </nav>
 
-<div class="container-fluid text-center">
+<div class="container-fluid text-center" style="background-color: #f1f1f1">
     <div class="row content">
         <div class="col-sm-2 sidenav"></div>
-        <div class="col-sm-8 text-left" style="padding-top: 3%">
+        <div class="col-sm-8 text-left" style="padding-top: 5%; background-color:#ffffff">
             <form action="Calculate" method="POST">
                 <table>
                     <tr>
@@ -67,7 +66,7 @@
                     </tr>
                     <tr>
                         <td width="70%"><p>Сумма выручки от реализации товаров (работ, услуг), имущественных прав за выбранный период (без налога на добавленную стоимость), руб.:</p></td>
-                        <td><input type="number" step="1" min="0" max="99999999999" value="10" class="form-control" name="proceeds" required></td>
+                        <td><input type="number" step="1" min="0" max="99999999999" value="0" class="form-control" name="proceeds" required></td>
                     </tr>
                     <tr>
                         <td width="70%"><p>Сумма внереализационных доходов за выбранный период (без налога на добавленную стоимость), руб.:</p></td>

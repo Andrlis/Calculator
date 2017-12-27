@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ibacalculator@localhost" uuid="80559ebb-978f-4e73-82df-8acc38acda0e">
+    <data-source source="LOCAL" name="ibacalculator@localhost" uuid="4cb241f0-b155-48f8-8ea9-742cc52d5e4f">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
