@@ -25,7 +25,7 @@
         }
 
         td {
-            padding-bottom: 2%;
+            padding-bottom: 5px;
         }
 
         .row.content {height: 100%}
@@ -50,7 +50,7 @@
 <div class="container-fluid text-center" style="background-color: #f1f1f1">
     <div class="row content">
         <div class="col-sm-2 sidenav"></div>
-        <div class="col-sm-8 text-left" style="padding-top: 5%; background-color:#ffffff">
+        <div class="col-sm-8 text-left" style="padding-top: 100px; background-color:#ffffff">
             <form action="Calculate" method="POST">
                 <table>
                     <tr>

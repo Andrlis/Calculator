@@ -2,6 +2,13 @@ $(document).ready( function () {
     loadTable();
 });
 
+function trueOrFalseConverter(value) {
+    if(value === true)
+        return "Да"
+    else
+        return "Нет"
+}
+
 function getCell(textData) {
     var cell = $("<td nowrap></td>");
     cell.append(textData);
@@ -14,9 +21,9 @@ function getSimpleRow(data, number) {
     row.append(getCell(data['period']));
     row.append(getCell(data['proceeds']));
     row.append(getCell(data['nonOperatingIncome']));
-    row.append(getCell(data['hasMainJob']));
-    row.append(getCell(data['hasBenefits']));
-    row.append(getCell(data['specialStatus']));
+    row.append(getCell(trueOrFalseConverter(data['hasMainJob'])));
+    row.append(getCell(trueOrFalseConverter(data['hasBenefits'])));
+    row.append(getCell(trueOrFalseConverter(data['specialStatus'])));
     row.append(getCell(data['numOfChildren']));
     row.append(getCell(data['numOfDisabledChildren']));
     row.append(getCell(data['numOfDependents']));
@@ -30,11 +37,15 @@ function getSimpleRow(data, number) {
 }
 
 function getHeaderCell(name, title) {
-    var cell = $('<th nowrap></th>');
+    var cell = $('<th></th>');
+    var p = $('<p></p>');
     if(title.length) {
         cell.attr("title", title);
+        p.attr("style","writing-mode:tb-rl; filter: flipH flipV; height:100px; white-space: nowrap; overflow: hidden;"
+                + "text-overflow: ellipsis;")
     }
-    cell.append(name);
+    p.append(name);
+    cell.append(p)
     return cell;
 }
 
@@ -43,19 +54,25 @@ function getTableHeader() {
 
     var headerRow = $('<tr style="font-weight: bold;"></tr>');
     headerRow.append(getHeaderCell("№", ""));
-    headerRow.append(getHeaderCell("1", "Период, за который производится расчет"));
-    headerRow.append(getHeaderCell("2", "Сумма выручки от реализации товаров (работ, услуг), имущественных прав за выбранный период (без налога на добавленную стоимость), руб."));
-    headerRow.append(getHeaderCell("3", "Сумма внереализационных доходов за выбранный период (без налога на добавленную стоимость), руб."));
-    headerRow.append(getHeaderCell("4", "Наличие места основной работы"));
-    headerRow.append(getHeaderCell("5", "Наличие права на льготы (инвалид I или II группы, инвалид с детства, участник боевых действий на территории других государств и др.)"));
-    headerRow.append(getHeaderCell("6", "Являетесь ли Вы вдовой (вдовцом), одиноким родителем, приемным родителем, опекуном или попечителем"));
-    headerRow.append(getHeaderCell("7", "Количество детей до 18 лет"));
-    headerRow.append(getHeaderCell("8", "Количество детей-инвалидов"));
-    headerRow.append(getHeaderCell("9", "Количество иждивенцев"));
-    headerRow.append(getHeaderCell("10", "Сумма расходов за выбранный период по страховым взносам по договорам добровольного страхования жизни и дополнительной пенсии, заключенным на срок не менее трех лет, а также по договорам добровольного страхования медицинских расходов, руб"));
-    headerRow.append(getHeaderCell("11", "Сумма расходов за выбранный период на получение первого платного образования своего либо близких родственников, руб.:"));
-    headerRow.append(getHeaderCell("12", "Сумма расходов за выбранный период на строительство либо приобретение жилья для нуждающихся в улучшении жилищных условий, руб."));
-    headerRow.append(getHeaderCell("13", "Сумма расходов за выбранный период, связанных с осуществлением предпринимательской деятельности, руб.:"));
+    headerRow.append(getHeaderCell("Период, за который производится расчет", "Период, за который производится расчет"));
+    headerRow.append(getHeaderCell("Сумма выручки от реализации товаров (работ, услуг), имущественных прав за выбранный период (без налога на добавленную стоимость), руб.",
+        "Сумма выручки от реализации товаров (работ, услуг), имущественных прав за выбранный период (без налога на добавленную стоимость), руб."));
+    headerRow.append(getHeaderCell("Сумма внереализационных доходов за выбранный период (без налога на добавленную стоимость), руб.", "Сумма внереализационных доходов за выбранный период (без налога на добавленную стоимость), руб."));
+    headerRow.append(getHeaderCell("Наличие места основной работы", "Наличие места основной работы"));
+    headerRow.append(getHeaderCell("Наличие права на льготы (инвалид I или II группы, инвалид с детства, участник боевых действий на территории других государств и др.)",
+        "Наличие права на льготы (инвалид I или II группы, инвалид с детства, участник боевых действий на территории других государств и др.)"));
+    headerRow.append(getHeaderCell("Являетесь ли Вы вдовой (вдовцом), одиноким родителем, приемным родителем, опекуном или попечителем", "Являетесь ли Вы вдовой (вдовцом), одиноким родителем, приемным родителем, опекуном или попечителем"));
+    headerRow.append(getHeaderCell("Количество детей до 18 лет", "Количество детей до 18 лет"));
+    headerRow.append(getHeaderCell("Количество детей-инвалидов", "Количество детей-инвалидов"));
+    headerRow.append(getHeaderCell("Количество иждивенцев", "Количество иждивенцев"));
+    headerRow.append(getHeaderCell("Сумма расходов за выбранный период по страховым взносам по договорам добровольного страхования жизни и дополнительной пенсии, заключенным на срок не менее трех лет, а также по договорам добровольного страхования медицинских расходов, руб",
+        "Сумма расходов за выбранный период по страховым взносам по договорам добровольного страхования жизни и дополнительной пенсии, заключенным на срок не менее трех лет, а также по договорам добровольного страхования медицинских расходов, руб."));
+    headerRow.append(getHeaderCell("Сумма расходов за выбранный период на получение первого платного образования своего либо близких родственников, руб.",
+        "Сумма расходов за выбранный период на получение первого платного образования своего либо близких родственников, руб."));
+    headerRow.append(getHeaderCell("Сумма расходов за выбранный период на строительство либо приобретение жилья для нуждающихся в улучшении жилищных условий, руб.",
+        "Сумма расходов за выбранный период на строительство либо приобретение жилья для нуждающихся в улучшении жилищных условий, руб."));
+    headerRow.append(getHeaderCell("Сумма расходов за выбранный период, связанных с осуществлением предпринимательской деятельности, руб.",
+        "Сумма расходов за выбранный период, связанных с осуществлением предпринимательской деятельности, руб."));
     headerRow.append(getHeaderCell("Итог, руб.",""));
 
     header.append(headerRow);

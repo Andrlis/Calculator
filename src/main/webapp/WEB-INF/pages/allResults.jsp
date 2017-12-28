@@ -26,12 +26,22 @@
             margin-bottom: 0;
             border-radius: 0;
         }
+
+        td, th {
+            padding: 10px;
+            align: center;
+            vertical-align: middle;
+            text-align: center;
+        }
+
         .row.content {height: 100%}
+
         .sidenav {
             padding-top: 20px;
             background-color: #f1f1f1;
             height: 100%;
         }
+
     </style>
 </head>
 <body>
@@ -39,31 +49,21 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li><a href="/StartServlet">Калькулятор</a></li>
-            <li class="active"><a href="/GetResultsServlet">Результаты</a></li>
+            <li><a href="/GetResultsServlet">Результаты</a></li>
         </ul>
     </div>
 </nav>
 
-<div class="container-fluid text-center">
+<div class="container-fluid text-center" style="background-color: #f1f1f1">
     <div class="row content">
         <div class="col-sm-2 sidenav"></div>
-        <div class="col-sm-8 text-left" style="padding-top: 5%; text-align: center">
-
+        <div class="col-sm-8 text-left" style="padding-top: 100px; padding-bottom: 50px; text-align: center; background-color:#ffffff">
             <div style="text-align: center;">
-                <div id="table-header" class="table-responsive" style="overflow: unset;">
-
-                </div>
-            </div>
-
-            <div style="text-align: center;">
-                <div id="table-container" class="table-responsive" style="height: 60%; width: max-content; margin: auto;">
-
-                </div>
+                <div id="table-header" class="table-responsive"></div>
             </div>
         </div>
         <div class="col-sm-2 sidenav"></div>
     </div>
 </div>
-
 </body>
 </html>
