@@ -61,7 +61,7 @@
     </div>
 </nav>
 
-<div class="container-fluid text-center">
+<div class="container-fluid text-center" style="background-color: #f1f1f1">
     <div class="row content">
         <div class="col-sm-2 sidenav"></div>
         <div class="col-sm-8 text-left" style="padding-top: 100px; text-align: center">

@@ -2,6 +2,10 @@ $(document).ready( function () {
     loadTable();
 });
 
+$(document).on('change','#parameter1', parameterSelected1);
+$(document).on('change','#parameter2', parameterSelected2);
+
+//Создание табоицы
 function trueOrFalseConverter(value) {
     if(value === true)
         return "Да"
@@ -81,7 +85,7 @@ function getTableHeader() {
 }
 
 function getTableBody(dataArray) {
-    var body = $('<tbody></tbody>');
+    var body = $('<tbody style="overflow-y: scroll; height: 60%"></tbody>');
 
     var numberOfRow = 0;
     dataArray.forEach(function (data) {
@@ -113,15 +117,68 @@ function formResultTable(data) {
 function loadTable() {
     $("#table-header").html("");
 
-    var div = $('<div style="width: 200px"></div>');
-    var loader = $('<div></div>', {class: "loader"});
-    div.append(loader)
-    $("#table-container").html(div);
-
     var successFunction = formResultTable;
 
     $.ajax({
         url: "GetTableServlet",
+        dataType: "json",
+        success: function(data){
+            successFunction(data);
+        }
+    });
+}
+
+
+//Создание всплывающего окна
+function parameterSelected1() {
+    var selectValue = $( "#parameter1" ).val();
+
+    if(selectValue == "hasMainJob" || selectValue == "hasBenefits" || selectValue == "specialStatus"){
+        $("#parameter1-value2").css("visibility", "hidden");
+        $("#parameter1-value1").css("visibility","visible");
+    }
+    else {
+        $("#parameter1-value1").css("visibility", "hidden");
+        $("#parameter1-value2").css("visibility","visible");
+    }
+}
+
+function parameterSelected2() {
+    var selectValue = $( "#parameter2" ).val();
+
+    if(selectValue == "hasMainJob" || selectValue == "hasBenefits" || selectValue == "specialStatus"){
+        $("#parameter2-value2").css("visibility", "hidden");
+        $("#parameter2-value1").css("visibility","visible");
+    }
+    else {
+        $("#parameter2-value1").css("visibility", "hidden");
+        $("#parameter2-value2").css("visibility","visible");
+    }
+}
+
+function filterTable() {
+    var parameter1 = $( "#parameter1" ).val();
+    var parameter2 = $( "#parameter2" ).val();
+
+    if($("parameter1-value1").is(":visible")){
+        var paramValue1 = $( "param1-value" ).val();
+    }
+
+    var paramValue2 = $( "param1-value2" ).val();
+    var paramValue3 = $( "param2-value1" ).val();
+    var paramValue4 = $( "param2-value2" ).val();
+
+    console.write(parameter1+parameter2+paramValue1+paramValue2+paramValue3+paramValue4);
+
+    var successFunction = formResultTable;
+
+    $.ajax({
+        url: "GetFilteredTableServlet?param1=" + parameter1
+                + "&param2=" + parameter2
+                + "&paramValue1=" + paramValue1
+                + "&paramValue2=" + paramValue2
+                + "&paramValue3=" + paramValue3
+                + "&paramValue4=" + paramValue4,
         dataType: "json",
         success: function(data){
             successFunction(data);

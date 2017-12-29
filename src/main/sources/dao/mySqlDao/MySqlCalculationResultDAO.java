@@ -1,6 +1,7 @@
 package dao.mySqlDao;
 
 import bean.CalculationResult;
+import bean.FilterParameters;
 import dao.CalculationResultDAO;
 import dao.DaoException;
 
@@ -80,6 +81,48 @@ public class MySqlCalculationResultDAO extends AbstractSqlDAO implements Calcula
         try {
             connection = getConnection();
             statement = connection.prepareStatement(GET_ALL_QUERY);
+            resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+                CalculationResult result = new CalculationResult();
+                result.setId(resultSet.getInt("id_result"));
+                result.getParameters().setPeriod(resultSet.getInt("period"));
+                result.getParameters().setProceeds(resultSet.getInt("proceeds"));
+                result.getParameters().setNonOperatingIncome(resultSet.getInt("nonOperatingIncome"));
+                result.getParameters().setHasMainJob(resultSet.getBoolean("hasMainJob"));
+                result.getParameters().setHasBenefits(resultSet.getBoolean("hasBenefits"));
+                result.getParameters().setSpecialStatus(resultSet.getBoolean("specialStatus"));
+                result.getParameters().setNumOfChildren(resultSet.getInt("numOfChildren"));
+                result.getParameters().setNumOfDisabledChildren(resultSet.getInt("numOfDisabledChildren"));
+                result.getParameters().setNumOfDependents(resultSet.getInt("numOfDependents"));
+                result.getParameters().setInsuranceContributions(resultSet.getInt("insuranceContributions"));
+                result.getParameters().setEducationExpenses(resultSet.getInt("educationExpenses"));
+                result.getParameters().setExpensesForBuilding(resultSet.getInt("expensesForBuilding"));
+                result.getParameters().setExpensesForBusiness(resultSet.getInt("expensesForBusiness"));
+                result.setResult(resultSet.getDouble("calculationResult"));
+
+                results.add(result);
+            }
+        } catch (SQLException e) {
+            throw new DaoException();
+        } finally {
+            closeDB(connection, statement, resultSet);
+        }
+
+        return results;
+    }
+
+    @Override
+    public List<CalculationResult> getResultsByParameters(FilterParameters parameters) throws DaoException{
+        String QUERY = "SELECT * FROM ibacalculator.results WHERE " + parameters.toQueryString();
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<CalculationResult> results = new ArrayList<CalculationResult>();
+
+        try {
+            connection = getConnection();
+            statement = connection.prepareStatement(QUERY);
             resultSet = statement.executeQuery();
 
             while(resultSet.next()) {

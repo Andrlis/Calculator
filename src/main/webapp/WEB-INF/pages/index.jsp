@@ -23,13 +23,10 @@
             margin-bottom: 0;
             border-radius: 0;
         }
-
         td {
             padding-bottom: 5px;
         }
-
         .row.content {height: 100%}
-
         .sidenav {
             padding-top: 20px;
             background-color: #f1f1f1;
