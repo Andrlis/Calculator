@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="css/app.css" media="screen">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid text-center" style="background-color: #f1f1f1">
+    <div class="container-fluid text-center" style="background-color: #f1f1f1; height: 100%">
         <div class="row content">
             <div class="col-sm-2 sidenav">
                 <button class="btn btn-lg" type="button" data-toggle="modal" data-target="#filter" style="margin-top: 45%"><span class="glyphicon glyphicon-filter"></span></button>

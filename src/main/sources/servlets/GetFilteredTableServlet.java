@@ -41,13 +41,17 @@ public class GetFilteredTableServlet extends HttpServlet {
         parameters.setParameter1(request.getParameter("param1"));
         parameters.setParameter2(request.getParameter("param2"));
 
-        if(request.getParameter("paramValue1")!=null)
+        if(request.getParameter("paramValue1") != null
+                && !request.getParameter("paramValue1").equals("undefined"))
             parameters.getParameterValues1().add(request.getParameter("paramValue1"));
-        if(request.getParameter("paramValue2")!=null)
+        if(request.getParameter("paramValue2") != null
+                && !request.getParameter("paramValue2").equals("undefined"))
             parameters.getParameterValues1().add(request.getParameter("paramValue2"));
-        if(request.getParameter("paramValue3")!=null)
+        if(request.getParameter("paramValue3") != null
+                && !request.getParameter("paramValue3").equals("undefined"))
             parameters.getParameterValues2().add(request.getParameter("paramValue3"));
-        if(request.getParameter("paramValue4")!=null)
+        if(request.getParameter("paramValue4") != null
+                && !request.getParameter("paramValue4").equals("undefined"))
             parameters.getParameterValues2().add(request.getParameter("paramValue4"));
 
         return parameters;

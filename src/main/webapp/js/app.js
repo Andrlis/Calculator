@@ -160,15 +160,26 @@ function filterTable() {
     var parameter1 = $( "#parameter1" ).val();
     var parameter2 = $( "#parameter2" ).val();
 
-    if($("parameter1-value1").is(":visible")){
-        var paramValue1 = $( "param1-value" ).val();
+    var paramValue1;
+    var paramValue2;
+    var paramValue3;
+    var paramValue4;
+
+    if($("#parameter1-value1").css("visibility")==="visible"){
+        paramValue1 = $( "#param1-value1" ).val();
+    }
+    if ($("#parameter1-value2").css("visibility")==="visible"){
+        paramValue1 = $( "#param1-value2" ).val();
+        paramValue2 = $( "#param1-value3" ).val();
     }
 
-    var paramValue2 = $( "param1-value2" ).val();
-    var paramValue3 = $( "param2-value1" ).val();
-    var paramValue4 = $( "param2-value2" ).val();
-
-    console.write(parameter1+parameter2+paramValue1+paramValue2+paramValue3+paramValue4);
+    if($("#parameter2-value1").css("visibility")==="visible"){
+        paramValue3 = $( "#param2-value1" ).val();
+    }
+    if ($("#parameter2-value2").css("visibility")==="visible"){
+        paramValue3 = $( "#param2-value2" ).val();
+        paramValue4 = $( "#param2-value3" ).val();
+    }
 
     var successFunction = formResultTable;
 
